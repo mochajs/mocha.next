@@ -1,0 +1,6 @@
+---
+extends: mocha/es6
+plugins:
+  - no-class
+rules:
+  no-class/no-class: error
