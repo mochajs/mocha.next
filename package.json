@@ -29,7 +29,8 @@
   ],
   "scripts": {
     "build": "parallel build:node build:browser",
-    "build:node": "rimraf lib && mkdirp lib && BABEL_ENV=node browserify --debug --standalone mocha --node --plugin [ bannerify --file .banner.ejs --pkg package.json ] src | exorcist lib/mocha.js.map > lib/mocha.js",
+    "build:node": "rimraf lib && BABEL_ENV=node babel --out-dir=lib src",
+    "build:node:alt": "rimraf lib && mkdirp lib && BABEL_ENV=node browserify --debug --standalone mocha --node --plugin [ bannerify --file .banner.ejs --pkg package.json ] src | exorcist lib/mocha.js.map > lib/mocha.js",
     "build:browser": "rimraf dist && mkdirp dist && parallel build:browser:main build:browser:min",
     "build:browser:main": "BABEL_ENV=browser browserify --debug --standalone mocha --plugin [ bannerify --file .banner.ejs --pkg package.json ] src | exorcist dist/mocha.js.map > dist/mocha.js",
     "build:browser:min": "BABEL_ENV=browser browserify --debug --standalone mocha --plugin [ bannerify --file .banner.ejs --pkg package.json ] --plugin [ minifyify --map dist/mocha.min.js.map --output dist/mocha.min.js.map ] src > dist/mocha.min.js",
