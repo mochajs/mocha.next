@@ -50,8 +50,7 @@
   },
   "dependencies": {
     "mocha-core": "*",
-    "mocha-ui-bdd": "*",
-    "mocha-runner-serial": "*"
+    "mocha-ui-bdd": "*"
   },
   "devDependencies": {
     "babel-cli": "^6.6.5",
